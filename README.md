@@ -12,5 +12,7 @@ https://drive.google.com/drive/folders/15INgNO8p9A30Ma5gaKzVlz8ZytV8Jmom
 ## 💰 Support My Work
 If these scripts have helped you, please consider supporting my work. Your support will help me continue to develop these tools and create more useful resources for the crypto community.
 
+- 🤑 Fiat Donations: [Paypal Link](https://paypal.me/HenryTirla)
+
 - 🚀 henrytirla.sol:   FJRDY392XSyfV9nFZC8SZij1hB3hsH121pCQi1KrvH6b
 
