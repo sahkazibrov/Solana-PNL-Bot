@@ -140,18 +140,7 @@ class TransactionProcessor:
                  )
              ''')
 
-        # Create the 'winning_wallets' table
-        # self.c.execute('''
-        #       CREATE TABLE IF NOT EXISTS winning_wallets (
-        #           wallet_address_id INTEGER,
-        #           win_rate_7 REAL,
-        #           win_rate_14 REAL,
-        #           win_rate_30 REAL,
-        #           win_rate_60 REAL,
-        #           win_rate_90 REAL,
-        #           FOREIGN KEY(wallet_address_id) REFERENCES wallet_address(id)
-        #       )
-        #   ''')
+
         self.c.execute('''
                        CREATE TABLE IF NOT EXISTS winning_wallets (
                            wallet_address_id INTEGER,
@@ -284,47 +273,7 @@ class TransactionProcessor:
         }
 
         return summary_data
-    # def get_summary(self, time_period):
-    #     query = f'''
-    #     WITH Calculations AS (
-    #       SELECT
-    #         (SUM(CASE WHEN delta_sol >   0 THEN   1 ELSE   0 END) *   1.0 / COUNT(*)) *   100 AS WinRate,
-    #         SUM(delta_sol) AS PnL_R,
-    #         SUM(CASE WHEN delta_sol <   0 THEN delta_sol ELSE   0 END) AS PnL_Loss,
-    #         (SUM(earned_sol) / NULLIF(SUM(spent_sol),   0) -   1) *   100 AS Balance_Change,
-    #         COUNT(CASE WHEN scam_tokens =  1 THEN  1 END) AS ScamTokens
-    #       FROM pnl_info
-    #       WHERE wallet_address_id = ?
-    #         AND last_trade >= strftime('%s', 'now', '-{time_period} days')
-    #     )
-    #
-    #     SELECT
-    #       *,
-    #       '{time_period} days' AS TimePeriod
-    #     FROM Calculations;
-    #     '''
-    #     self.c.execute(query, (self.get_wallet_address_id(self.wallet_address),))
-    #
-    #     summary_result = self.c.fetchone()
-    #     win_rate = summary_result[0]
-    #
-    #     # Store the win rate in the 'winning_wallets' table
-    #     self.store_win_rate(time_period, win_rate)
-    #
-    #
-    #
-    #     summary_data = {
-    #         'SolBalance': self.sol_balance,
-    #         'WalletAddress': str(self.wallet_address),
-    #         'WinRate': summary_result[0],
-    #         'PnL_R': summary_result[1],
-    #         'PnL_Loss': summary_result[2],
-    #         'Balance_Change': summary_result[3],
-    #         'ScamTokens': summary_result[4],
-    #         'TimePeriod': summary_result[5]  # Assuming ScamTokens is the  6th column in the result
-    #     }
-    #
-    #     return summary_data
+
     def get_transactions(self, time_period):
         query = f'''
         SELECT *
