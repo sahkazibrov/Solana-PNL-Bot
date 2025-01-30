@@ -1,3 +1,6 @@
+
+# Note a concurrent approach can be used if API does not limit you. Eg Deocode token accounts at the same time in batches of 10-20 
+
 import os
 import sys
 import time
