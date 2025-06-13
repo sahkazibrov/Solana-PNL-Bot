@@ -4,8 +4,7 @@
 import os
 import sys
 import time
-
-import pandas as pd
+import pandas
 import layouts
 import asyncio
 import datetime
